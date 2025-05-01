@@ -1,0 +1,472 @@
+
+.nav-ul {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #00b4db, #0083b0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-ul li {
+  display: inline-block;
+  padding: 35px 25px;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.nav-ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.nav-ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.nav-ul li a:hover {
+  color: #ffeb3b;
+}
+
+
+.logo{
+  width: 90px;
+  float: left;
+  border-radius: 5%;
+  margin-top: 0px;
+  margin-left:0px;
+  height: 90px;
+
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+
+.logo:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+
+.footer {
+  position: absolute;
+  background-color: #00b4db;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  filter: drop-shadow(0 0 5px rgba(97, 218, 251, 0.7));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.App-header {
+  background: linear-gradient(to bottom, #2c3e50, #3498db);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(12px + 2vmin);
+  color: white;
+  text-align: center;
+}
+
+
+.App-link {
+  color: #61dafb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.App-link:hover {
+  color: #fff;
+}
+
+
+.register,
+.login, .product {
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  width: 350px;
+  padding: 50px;
+  background-color: #f3f9ff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  font-family: 'Segoe UI', sans-serif;
+  opacity: 0.95;
+  color: #007cb9;
+}
+
+.inputBox {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #00b4db;
+  border-radius: 5px;
+  margin: 15px 0;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.inputBox:focus {
+  border-color: #0083b0;
+}
+
+
+.appButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #00b4db;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.appButton:hover {
+  background-color: #0083b0;
+}
+.invalid-input{
+ display: block;
+ color: red;
+ margin-top: -9px;
+ margin-left: 0px;
+ margin-bottom: 10px;
+ font-size: small;
+}
+/* .accept{
+  width: 100%;
+  padding: 7px;
+  color: white;
+  border-radius: 7px;
+  cursor
+  ;
+} */
+
+
+.nav-right {
+  margin-left: auto;
+  padding-right: 20px;
+  text-align: right;
+}
+  body {
+  background-image: url('https://assets3.thrillist.com/v1/image/3078512/1200x600/scale;;webp=auto;jpeg_quality=85.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}  
+ .product-list{
+  text-align: center;
+  margin-top: 50px;
+ }
+ .product-list ul li{
+  display: inline-block;
+  width: 150px;
+  border: 1px solid skyblue;
+  padding:5px
+ }
+
+ .search-product-box{
+  width: 400px;
+  margin: 7px;
+  height: 38px;
+  padding-left: 30px;
+  border-radius: 6%;
+  border: solid 1px skyblue ;
+
+ }
+ .product-list-container {
+  padding: 30px;
+  margin-top: 43px;
+  margin-left: 450px;
+  max-width: 900px;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  opacity: 1;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007cb9;
+}
+
+.search-product-box {
+  width: 93%;
+  padding: 12px 16px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+.product-table {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.product-header, .product-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 1fr 1fr 160px;
+  padding: 12px 16px;
+  align-items: center;
+}
+
+.product-header {
+  background-color: #f1f1f1;
+  font-weight: bold;
+
+}
+
+.product-row {
+  border-top: 1px solid #eee;
+  transition: background 0.2s ease;
+}
+
+.product-row:hover {
+  background-color: #f9f9f9;
+}
+
+button.delete-btn, .update-btn {
+  margin-right: 10px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+button.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.update-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.no-result {
+  padding: 20px;
+  text-align: center;
+  color: #e74c3c;
+  font-weight: 500;
+}
+.about-us-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  opacity: 0.9;
+}
+.about-us-container h1 {
+  text-align: center;
+  color: #007cb9;
+  margin-bottom: 20px;
+  font-size: 2.2em;
+}
+
+.about-intro {
+  text-align: center;
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.about-content p {
+  font-size: 1em;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-footer {
+  text-align: center;
+  margin-top: 30px;
+  font-style: italic;
+  color: #777;
+}
+
+
+
+
+@media screen and (max-width: 1024px) {
+  .product-list-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+  .register,
+  .login,
+  .product {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .search-product-box {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .product-header, .product-row {
+    grid-template-columns: 40px 1fr 1fr 1fr 1fr;
+    padding: 10px;
+  }
+
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .nav-ul li {
+    padding: 20px 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-ul {
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: space-around;
+  }
+
+  .nav-ul li {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  .product-header,
+  .product-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .product-list ul li {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .about-us-container {
+    padding: 20px;
+    margin: 20px auto;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App-header {
+    font-size: 16px;
+    padding: 20px;
+  }
+
+  h2, .about-us-container h1 {
+    font-size: 1.5em;
+  }
+
+  .inputBox,
+  .appButton {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+
+
+/* catgory */
+.categories-container {
+  max-width: 1000px;
+  margin: 50px 500px;
+  margin-top: 170px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.categories-container h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #007cb9;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.category-card {
+  background: linear-gradient(135deg, #00b4db, #0083b0);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+.category-name {
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+}
