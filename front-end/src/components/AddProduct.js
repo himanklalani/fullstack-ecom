@@ -9,6 +9,8 @@ const AddProduct = () => {
   const [error, setError] = React.useState(false);
   const [disabled, setDisabled] = React.useState(false);
 
+  const baseUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+
   const AddProduct = async () => {
     if (!name || !price || !category || !company || count < 1) {
       setError(true);
@@ -18,7 +20,7 @@ const AddProduct = () => {
     setDisabled(true);
     const userId = JSON.parse(localStorage.getItem('user'))._id;
 
-    let result = await fetch('http://localhost:5000/add-product', {
+    let result = await fetch(`${baseUrl}/add-product`, {
       method: 'POST',
       body: JSON.stringify({ name, price, category, company, userId, count }),
       headers: {
@@ -30,7 +32,6 @@ const AddProduct = () => {
     alert(result.result || 'Product added/updated');
     setDisabled(false);
 
-    // Reset inputs
     setName('');
     setPrice('');
     setCategory('');
@@ -41,7 +42,6 @@ const AddProduct = () => {
   return (
     <div className='product'>
       <h1>Add Products</h1>
-
       <input
         type='text'
         placeholder='Enter product name'

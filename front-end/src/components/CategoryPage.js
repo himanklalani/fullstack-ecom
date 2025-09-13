@@ -4,16 +4,17 @@ import { useParams } from 'react-router-dom';
 const CategoryPage = () => {
   const { categoryName } = useParams();
   const [products, setProducts] = useState([]);
+  const baseUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
     fetchCategoryProducts();
   }, [categoryName]);
 
   const fetchCategoryProducts = async () => {
-    let result = await fetch(`http://localhost:5000/products`);
+    let result = await fetch(`${baseUrl}/products`);
     result = await result.json();
-    const filtered = result.filter(product => 
-      product.category?.toLowerCase() === categoryName.toLowerCase()
+    const filtered = result.filter(
+      (product) => product.category?.toLowerCase() === categoryName.toLowerCase()
     );
     setProducts(filtered);
   };

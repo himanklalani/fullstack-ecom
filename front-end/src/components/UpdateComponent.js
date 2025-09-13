@@ -9,13 +9,15 @@ const UpdateProduct = () => {
   const [count, setCount] = useState(''); // ✅ added count state
   const params = useParams();
 
+  const baseUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+
   useEffect(() => {
     getProductDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getProductDetails = async () => {
-    let result = await fetch(`http://localhost:5000/product/${params.id}`);
+    let result = await fetch(`${baseUrl}/product/${params.id}`);
     result = await result.json();
 
     setName(result.name);
@@ -26,12 +28,12 @@ const UpdateProduct = () => {
   };
 
   const updateProduct = async () => {
-    let result = await fetch(`http://localhost:5000/product/${params.id}`, {
+    let result = await fetch(`${baseUrl}/product/${params.id}`, {
       method: 'PUT',
       body: JSON.stringify({ name, price, category, company, count }), // ✅ include count
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
     result = await result.json();
     console.warn(result);

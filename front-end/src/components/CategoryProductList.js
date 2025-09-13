@@ -1,10 +1,10 @@
-// src/components/CategoryProductList.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const CategoryProductList = () => {
   const { categoryName } = useParams();
   const [products, setProducts] = useState([]);
+  const baseUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
     fetchProductsByCategory();
@@ -12,11 +12,9 @@ const CategoryProductList = () => {
 
   const fetchProductsByCategory = async () => {
     try {
-      let result = await fetch('http://localhost:5000/products');
+      let result = await fetch(`${baseUrl}/products`);
       result = await result.json();
-      const filtered = result.filter(
-        (p) => p.category?.toLowerCase() === categoryName.toLowerCase()
-      );
+      const filtered = result.filter((p) => p.category?.toLowerCase() === categoryName.toLowerCase());
       setProducts(filtered);
     } catch (error) {
       console.error('Error fetching products:', error);

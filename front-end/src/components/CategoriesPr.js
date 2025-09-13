@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CategoriesPr = () => {
   const [categories, setCategories] = useState([]);
+  const baseUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
     fetchCategories();
@@ -10,9 +11,9 @@ const CategoriesPr = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('http://localhost:5000/products');
+      const response = await fetch(`${baseUrl}/products`);
       const data = await response.json();
-      const uniqueCategories = [...new Set(data.map(item => item.category))];
+      const uniqueCategories = [...new Set(data.map((item) => item.category))];
       setCategories(uniqueCategories);
     } catch (error) {
       console.error('Failed to fetch categories:', error);
