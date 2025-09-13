@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+
 require('./db/config');
 const User = require('./db/User');
 const Product = require('./db/Product');
@@ -7,7 +7,22 @@ const Product = require('./db/Product');
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+const cors = require("cors");
+
+const allowedOrigins = [
+  "https://fullstack-ecom-u6km.onrender.com", // backend itself, not needed but safe
+  "https://fullstack-ecom-seven.vercel.app",         // add your Vercel/production frontend domain here
+  "http://localhost:3000"                     // for local development
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 
 app.post('/register', async (req, res) => {
   let user = new User(req.body);
