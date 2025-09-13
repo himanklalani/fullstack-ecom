@@ -20,12 +20,7 @@ const AboutUs = () => {
         <p>
           Let’s build a greener future together by embracing the power of reuse. 🌱
         </p>
-        <strong>  <p>
-          Himank Lalani TY-4 28
-        </p>
-        <p> Vishwa Patel  TY-4 37
-       </p>
-       <p> Siddharth Pal TY-4 35</p></strong>
+        
       </div>
 
       <div className="about-footer">

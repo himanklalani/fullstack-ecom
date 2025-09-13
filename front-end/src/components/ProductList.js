@@ -38,34 +38,45 @@ const ProductList = () => {
   };
 
   return (
-    <div className="product-list-container">
-      <h2> Product List</h2>
-      <input
-        type="text"
-        className="search-product-box"
-        placeholder="🔍 Search product..."
-        onChange={searchHandle}
-      />
-      <div className="product-table">
-        <div className="product-header">
-          <span>#</span>
-          <span>Name</span>
-          <span>Price</span>
-          <span>Category</span>
-          <span>Actions</span>
-        </div>
-        {products.length > 0 ? (
-          products.map((item, index) => (
-            <div className="product-row" key={item._id}>
-              <span>{index + 1}</span>
-              <span>{item.name}</span>
-              <span>{item.price}</span>
-              <span>{item.category}</span>
-              <span>
-                <button className="delete-btn" onClick={() => deleteProduct(item._id)}>Delete</button>
-                <Link className="update-btn" to={`/update/${item._id}`}>Update</Link>
-              </span>
-            </div>
+  <div className="product-list-container">
+    <h2> Product List</h2>
+    <input
+      type="text"
+      className="search-product-box"
+      placeholder="🔍 Search product..."
+      onChange={searchHandle}
+    />
+    <div className="product-table">
+      <div className="product-header">
+        <span>#</span>
+        <span>Name</span>
+        <span>Price</span>
+        <span>Category</span>
+        <span>Company</span>
+        <span>Count</span>
+        <span>Actions</span>
+      </div>
+      {products.length > 0 ? (
+        products.map((item, index) => (
+          <div className="product-row" key={item._id}>
+            <span>{index + 1}</span>
+            <span>{item.name}</span>
+            <span>{item.price}</span>
+            <span>{item.category}</span>
+            <span>{item.company}</span>
+            <span>{item.count || 1}</span>
+            <span className="action-buttons">
+              <button
+                className="delete-btn"
+                onClick={() => deleteProduct(item._id)}
+              >
+                Delete
+              </button>
+              <Link className="update-btn" to={`/update/${item._id}`}>
+                Update
+              </Link>
+            </span>
+          </div>
           ))
         ) : (
           <p className="no-result">❌ No Results Found</p>

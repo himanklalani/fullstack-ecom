@@ -32,11 +32,30 @@ app.post("/login",async (req,res)=>{
   }
 })
 
-app.post('/add-product',async (req,res)=>{
-  let product= new Product(req.body);
-  let result= await product.save();
-  res.send(result);
-})
+app.post('/add-product', async (req, res) => {
+  const { name, price, category, company, userId, count } = req.body;
+
+  let existingProduct = await Product.findOne({ name, category });
+
+  if (existingProduct) {
+    existingProduct.count += parseInt(count) || 1;
+    await existingProduct.save();
+    res.send(existingProduct);
+  } else {
+    let product = new Product({
+      name,
+      price,
+      category,
+      company,
+      userId,
+      count: parseInt(count) || 1
+    });
+    let result = await product.save();
+    res.send(result);
+  }
+});
+
+
 app.get('/products',async(req,res)=>{
   let products=await Product.find();
   if(products.length>0){

@@ -6,6 +6,7 @@ const UpdateProduct = () => {
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
   const [company, setCompany] = useState('');
+  const [count, setCount] = useState(''); // ✅ added count state
   const params = useParams();
 
   useEffect(() => {
@@ -14,21 +15,20 @@ const UpdateProduct = () => {
   }, []);
 
   const getProductDetails = async () => {
-    console.warn(params);
     let result = await fetch(`http://localhost:5000/product/${params.id}`);
     result = await result.json();
-    console.warn(result);
+
     setName(result.name);
     setPrice(result.price);
     setCategory(result.category);
     setCompany(result.company);
+    setCount(result.count); // ✅ populate count from API
   };
 
   const updateProduct = async () => {
-    console.warn(name, price, category, company);
     let result = await fetch(`http://localhost:5000/product/${params.id}`, {
       method: 'PUT',
-      body: JSON.stringify({ name, price, category, company }),
+      body: JSON.stringify({ name, price, category, company, count }), // ✅ include count
       headers: {
         'Content-Type': 'application/json'
       }
@@ -39,7 +39,7 @@ const UpdateProduct = () => {
 
   return (
     <div className="product">
-      <h1>UpdateProduct</h1>
+      <h1>Update Product</h1>
       <input
         type="text"
         placeholder="Enter product name"
@@ -67,6 +67,13 @@ const UpdateProduct = () => {
         className="inputBox"
         value={company}
         onChange={(e) => setCompany(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Enter product count"
+        className="inputBox"
+        value={count}
+        onChange={(e) => setCount(e.target.value)}
       />
       <button onClick={updateProduct} className="appButton">
         Update product

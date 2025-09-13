@@ -1,4 +1,3 @@
-// src/pages/CategoriesPr.js
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,19 +5,15 @@ const CategoriesPr = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    // Replace this with your API call if needed
     fetchCategories();
   }, []);
 
   const fetchCategories = async () => {
     try {
-      // Mock categories data
-      const data = [
-        'Electronics',
-        'Laptop',
-        'Mobile'
-      ];
-      setCategories(data);
+      const response = await fetch('http://localhost:5000/products');
+      const data = await response.json();
+      const uniqueCategories = [...new Set(data.map(item => item.category))];
+      setCategories(uniqueCategories);
     } catch (error) {
       console.error('Failed to fetch categories:', error);
     }

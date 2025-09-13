@@ -1,35 +1,90 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+
 const Nav = () => {
-  
-    const auth= localStorage.getItem('user');
-    const navigate= useNavigate();
-    const logout=()=>{
+    const auth = localStorage.getItem('user');
+    const navigate = useNavigate();
+    const logout = () => {
         localStorage.clear();
-        navigate('/signup')
-    }
+        navigate('/signup');
+    };
 
-  return (
-    <div>
-    
-<img className="logo" src="/img/blue logo.png" alt="logo" />
+    return (
+        <div>
+            <img className="logo" src="/img/blue logo.png" alt="logo" />
 
-        {auth? <ul className="nav-ul">
-            
-        <li><Link to="/">Products</Link></li>
-        <li><Link to="/add">Add Products</Link></li>
-        {/* <li><Link to="/update">Update Products</Link></li> */}
-        <li><Link to="/categories">Category of products</Link></li>
-        <li><Link to="/profile">About Us</Link></li>
-        <li><Link onClick={logout} to="/signUp">Logout ({JSON.parse(auth).name})</Link></li>
-      </ul>
-      :<ul className="nav-ul nav-right">
-         
-        <li><Link to="/signup">Sign Up</Link></li>
-        <li><Link to="/login">Login</Link></li>
-        </ul>}
-    </div>
-  );
+            {auth ? (
+                <ul className="nav-ul">
+                    <li>
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) => (isActive ? "active" : "")}
+                            end
+                        >
+                            Products
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/add"
+                            className={({ isActive }) => (isActive ? "active" : "")}
+                        >
+                            Add Products
+                        </NavLink>
+                    </li>
+                    {/* <li>
+                        <NavLink to="/update" className={({ isActive }) => (isActive ? "active" : "")}>
+                            Update Products
+                        </NavLink>
+                    </li> */}
+                    <li>
+                        <NavLink
+                            to="/categories"
+                            className={({ isActive }) => (isActive ? "active" : "")}
+                        >
+                            Category of products
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/profile"
+                            className={({ isActive }) => (isActive ? "active" : "")}
+                        >
+                            About Us
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/signup"
+                            onClick={logout}
+                            className={({ isActive }) => (isActive ? "active" : "")}
+                        >
+                            Logout ({JSON.parse(auth).name})
+                        </NavLink>
+                    </li>
+                </ul>
+            ) : (
+                <ul className="nav-ul nav-right">
+                    <li>
+                        <NavLink
+                            to="/signup"
+                            className={({ isActive }) => (isActive ? "active" : "")}
+                        >
+                            Sign Up
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/login"
+                            className={({ isActive }) => (isActive ? "active" : "")}
+                        >
+                            Login
+                        </NavLink>
+                    </li>
+                </ul>
+            )}
+        </div>
+    );
 };
 
 export default Nav;
